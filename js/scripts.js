@@ -25,11 +25,14 @@ $(document).ready(function() {
         $("input:checkbox[name=pizzaTopping]:checked").each(function(){
         var toppings = $(this).val();
         pizzaToppings.push(toppings)
+        console.log(this.size);
         
     })
 
     var newPizza = new Pizza(pizzaSize, pizzaToppings.length);
+    console.log(newPizza);
     
     $("#message").show().text("Thanks for the order, " + name +  "! Your order cost $" + newPizza.cost() + " &  will be delivered to the following address: " + address + ". See you soon!")
     });
 });
+
