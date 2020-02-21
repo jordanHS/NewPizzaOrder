@@ -5,8 +5,9 @@ function Pizza (size, toppings) {
 
 Pizza.prototype.cost = function() {
    var price = parseInt(this.size);
+   console.log(price);
    if (this.toppings.length > 3) {
-   return parseInt(price) + (parseInt(this.toppings.length) - 3)
+   return price + (parseInt(this.toppings.length) - 3)
    } else {
        return price;
    }
@@ -25,11 +26,10 @@ $(document).ready(function() {
         $("input:checkbox[name=pizzaTopping]:checked").each(function(){
         var toppings = $(this).val();
         pizzaToppings.push(toppings)
-        console.log(this.size);
         
     })
 
-    var newPizza = new Pizza(pizzaSize, pizzaToppings.length);
+    var newPizza = new Pizza(pizzaSize, pizzaToppings);
     console.log(newPizza);
     
     $("#message").show().text("Thanks for the order, " + name +  "! Your order cost $" + newPizza.cost() + " &  will be delivered to the following address: " + address + ". See you soon!")
