@@ -1,11 +1,11 @@
-function Pizza (size, toppings) {
-    this.size = size;
+function Pizza (cost, toppings) {
+    this.cost = cost;
     this.toppings = toppings;
 }
 
-Pizza.prototype.cost = function() {
-   var price = parseInt(this.size);
-   console.log(price);
+Pizza.prototype.total = function() {
+   var price = parseInt(this.cost);
+//    console.log(price);
    if (this.toppings.length > 3) {
    return price + (parseInt(this.toppings.length) - 3)
    } else {
@@ -13,6 +13,9 @@ Pizza.prototype.cost = function() {
    }
 }
 
+function Beverage (cost) {
+    this.cost = cost;
+}
 
 //User Interface
 $(document).ready(function() {
@@ -22,7 +25,6 @@ $(document).ready(function() {
         var address = $("input#address").val();
         var pizzaSize = $("input:radio[name=pizzaSize]:checked").val();
         var pizzaToppings = [];
-        console.log(pizzaToppings);
         $("input:checkbox[name=pizzaTopping]:checked").each(function(){
         var toppings = $(this).val();
         pizzaToppings.push(toppings)
@@ -31,8 +33,9 @@ $(document).ready(function() {
 
     var newPizza = new Pizza(pizzaSize, pizzaToppings);
     console.log(newPizza);
+    console.log(newPizza.total());
     
-    $("#message").show().text("Thanks for the order, " + name +  "! Your order cost $" + newPizza.cost() + " &  will be delivered to the following address: " + address + ". See you soon!")
+    $("#message").show().text("Thanks for the order, " + name +  "! Your order cost $" + newPizza.total() + " &  will be delivered to the following address: " + address + ". See you soon!")
     });
 });
 
