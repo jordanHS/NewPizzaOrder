@@ -4,13 +4,21 @@ function Pizza (cost, toppings) {
 }
 
 Pizza.prototype.total = function() {
-   var price = parseInt(this.cost);
-   if (this.toppings.length > 3) {
-   return price + (parseInt(this.toppings.length) - 3);
-   } else {
-       return price;
+   var cost = this.cost;
+    if (this.size = "large") {
+       cost = 15;
+   }  if (this.size = "medium") {
+       cost = 12;
+   } if (this.size = "small") {
+       cost = 10;
    }
+   if (this.toppings.length > 3) {
+    return cost + (parseInt(this.toppings.length) - 3);
+    } else {
+        return cost;
+    }
 }
+
 
 function Beverage (cost) {
     this.cost = cost;
