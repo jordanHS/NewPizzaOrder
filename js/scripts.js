@@ -6,11 +6,11 @@ function Pizza (cost, toppings) {
 Pizza.prototype.total = function() {
    var cost = this.cost;
     if (this.size = "large") {
-       cost = 15;
-   }  if (this.size = "medium") {
-       cost = 12;
+       this.cost = 15;
+   } if (this.size = "medium") {
+       this.cost = 12;
    } if (this.size = "small") {
-       cost = 10;
+       this.cost = 10;
    }
    if (this.toppings.length > 3) {
     return cost + (parseInt(this.toppings.length) - 3);
